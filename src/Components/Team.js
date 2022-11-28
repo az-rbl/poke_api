@@ -3,12 +3,11 @@ import Card from 'react-bootstrap/Card'
 import { Button } from "react-bootstrap";
 
 
-const Pokemon = ({character, click}) => {
+const Team = ({character, click}) => {
   const [team, setTeam] =useState(JSON.parse(localStorage.getItem("testJSON")))
-  
-  const Add_team = (e) =>{
+  const Del_team = (e) =>{
     setTeam(JSON.parse(localStorage.getItem("testJSON")))
-    team.push(character);
+    team.pop(character);
     console.log(team);
     const myteam = JSON.stringify(team);
     localStorage.setItem("testJSON",myteam);
@@ -17,15 +16,12 @@ const Pokemon = ({character, click}) => {
   }
 
 return(
-<Card  bg = 'dark' text = 'white' style={{ width: '18rem' }}>
+<Card  bg = 'white' text = 'dark' style={{ width: '18rem' }}>
   <Card.Body>
-  <Card.Title>{character.name}</Card.Title> 
-  <Button onClick={click} variant="secondary" value={character.name}>Añadir </Button>
+  <Card.Title>{character}</Card.Title> 
+  <Button onClick={click} variant="secondary"value={character}>Borrar </Button>
   </Card.Body>
 </Card>
 );
-
-
 }
-
-export default Pokemon;
+export default Team;
