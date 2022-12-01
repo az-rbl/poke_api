@@ -76,13 +76,13 @@ const Pokemones =()=>{
             )}
         </Stack>
        
-       <Col>
+       <Row>
         {pokemones.map(character=>
-        <Row key ={character.name}>
+        <Col key ={character.name}>
             <Pokemon character={character}  click ={click_a}/>
-        </Row>)}
+        </Col>)}
 
-        </Col>
+        </Row>
  
         </Container>
 
