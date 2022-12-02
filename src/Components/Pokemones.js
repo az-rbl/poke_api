@@ -38,12 +38,15 @@ const Pokemones =()=>{
         
     }
 
-    function click_a(e) {
+    const  click_a=(name, src)=>{
         if(team.length <6){
         setC(!C)
         console.log(C)
-        console.log(e.target.value)
-        team.push(e.target.value)
+        console.log(name)
+        console.log(src)
+        let entry ={name: name, src:src}
+        console.log(entry)
+        team.push(entry)
         }
     }
 

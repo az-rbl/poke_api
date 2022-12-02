@@ -21,7 +21,7 @@ const Pokemon = ({character, click}) => {
     let id = character.url.replace("https://pokeapi.co/api/v2/pokemon/",'')
     id = id.slice(0, -1);
     setSrc(src + id +".png")
-    dict.push(character.name)
+    // dict.push(character.name)
     dict.push(src)
   },[])
 
@@ -30,7 +30,7 @@ return(
   <Card.Body>
   <Card.Title>{character.name}</Card.Title> 
   <img src = {src}></img>
-  <Button onClick={click} variant="secondary" value={dict}>Añadir </Button>
+  <Button onClick={()=>click(character.name, src)} variant="secondary" value={character.name}>Añadir </Button>
   </Card.Body>
 </Card>
 );

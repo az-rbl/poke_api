@@ -18,7 +18,8 @@ const Team = ({character, click}) => {
 return(
 <Card  bg = 'white' text = 'dark' style={{ width: '18rem' }}>
   <Card.Body>
-  <Card.Title>{character}</Card.Title> 
+  <Card.Title>{character.name}</Card.Title> 
+  <img src = {character.src}></img>
   <Button onClick={click} variant="secondary"value={character}>Borrar </Button>
   </Card.Body>
 </Card>
