@@ -6,6 +6,7 @@ import { Button } from "react-bootstrap";
 const Pokemon = ({character, click}) => {
   const [team, setTeam] =useState(JSON.parse(localStorage.getItem("testJSON")))
   const [src, setSrc] =useState("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/")
+  const dict = [];
   
   const Add_team = (e) =>{
     setTeam(JSON.parse(localStorage.getItem("testJSON")))
@@ -20,6 +21,8 @@ const Pokemon = ({character, click}) => {
     let id = character.url.replace("https://pokeapi.co/api/v2/pokemon/",'')
     id = id.slice(0, -1);
     setSrc(src + id +".png")
+    dict.push(character.name)
+    dict.push(src)
   },[])
 
 return(
@@ -27,7 +30,7 @@ return(
   <Card.Body>
   <Card.Title>{character.name}</Card.Title> 
   <img src = {src}></img>
-  <Button onClick={click} variant="secondary" value={character.name}>Añadir </Button>
+  <Button onClick={click} variant="secondary" value={dict}>Añadir </Button>
   </Card.Body>
 </Card>
 );
